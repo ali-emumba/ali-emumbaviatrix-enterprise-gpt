@@ -42,24 +42,27 @@ const EmailTags: React.FC<EmailTagsProps> = ({
 
   return (
     <>
-      <div className="email-tags">
-        {formatted_emails.map((email, index) => (
-          <Popover
-            content={content}
-            trigger="hover"
-            key={index}
-            placement="topRight"
-          >
-            <Tag className="email-tag" onClick={() => openModal(email)}>
-              <div className="tag-content">
-                <div className="tag-subject">{email.Subject}</div>
-                <div className="tag-date">
-                  {new Date(email["Received DateTime"]).toLocaleDateString()}
+      <div className="email-tags-wrapper">
+        <div className="email-tags">
+          {formatted_emails.map((email, index) => (
+            <Popover
+              content={content}
+              trigger="hover"
+              key={index}
+              placement="topRight"
+            >
+              <Tag className="email-tag" onClick={() => openModal(email)}>
+                <div className="tag-content">
+                  <div className="tag-subject">{email.Subject}</div>
+                  <div className="tag-date">
+                    {new Date(email["Received DateTime"]).toLocaleDateString()}
+                  </div>
                 </div>
-              </div>
-            </Tag>
-          </Popover>
-        ))}
+              </Tag>
+            </Popover>
+          ))}
+        </div>
+        {/* <br /> */}
         <ul className="email-attachments">
           {attachments.map((attachment, index) => (
             <li key={index}>
