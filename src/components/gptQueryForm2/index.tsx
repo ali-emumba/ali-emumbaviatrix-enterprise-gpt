@@ -3,6 +3,7 @@ import { Button, Form, Input, Select } from "antd";
 import React, { useState } from "react";
 import { OPTIONS, QUESTIONS, SUBQUESTION_TAGS } from "./../../data/questions";
 import "./styles.css";
+import { generateResponse } from "../../api/generate";
 
 interface GptQueryForm2Props {
   loading: boolean;
@@ -16,13 +17,13 @@ const GptQueryForm2: React.FC<GptQueryForm2Props> = ({
   const [form] = Form.useForm();
   const [selectedSubQuestions, setSelectedSubQuestions] = useState<any[]>([]);
 
-  const onFinish = (values: any) => {
+  const onFinish = async (values: any) => {
     console.log("Received values of form:", values);
     onSetLoading(true);
-    // set 3 second timeout to simulate API call
-    setTimeout(() => {
-      onSetLoading(false);
-    }, 3000);
+    // setTimeout(() => {
+    //   onSetLoading(false);
+    // }, 3000);
+    const response = await generateResponse(values);
   };
 
   const handleQuestionChange = (questionValue: string) => {
@@ -32,14 +33,14 @@ const GptQueryForm2: React.FC<GptQueryForm2Props> = ({
     // If the question has subquestions, set them in the Form List
     if (selectedQuestion?.subQuestions) {
       const initialSubQuestions = selectedQuestion.subQuestions.map((sub) => ({
-        subquestion: sub.label,
+        question: sub.label,
         tags: sub.tags.map((tag) => tag.value), // Pre-fill the tags
       }));
       setSelectedSubQuestions(initialSubQuestions);
-      form.setFieldsValue({ subquestions: initialSubQuestions });
+      form.setFieldsValue({ sub_questions: initialSubQuestions });
     } else {
       setSelectedSubQuestions([]);
-      form.setFieldsValue({ subquestions: [] });
+      form.setFieldsValue({ sub_questions: [] });
     }
   };
 
@@ -54,7 +55,7 @@ const GptQueryForm2: React.FC<GptQueryForm2Props> = ({
     >
       {/* Select Question */}
       <Form.Item
-        name="question"
+        name="query"
         label="Choose a question"
         rules={[{ required: true, message: "Please select a question!" }]}
       >
@@ -73,7 +74,7 @@ const GptQueryForm2: React.FC<GptQueryForm2Props> = ({
 
       {/* Select Option */}
       <Form.Item
-        name="option"
+        name="company"
         label="Choose an option"
         rules={[{ required: true, message: "Please select an option!" }]}
       >
@@ -88,11 +89,11 @@ const GptQueryForm2: React.FC<GptQueryForm2Props> = ({
 
       {/* Subquestions */}
       <Form.List
-        name="subquestions"
+        name="sub_questions"
         rules={[
           {
-            validator: async (_, subquestions) => {
-              if (!subquestions || subquestions.length === 0) {
+            validator: async (_, sub_questions) => {
+              if (!sub_questions || sub_questions.length === 0) {
                 return Promise.reject(
                   new Error("Please add at least one subquestion")
                 );
@@ -109,7 +110,7 @@ const GptQueryForm2: React.FC<GptQueryForm2Props> = ({
                 {/* Subquestion Input */}
                 <Form.Item
                   {...restField}
-                  name={[name, "subquestion"]}
+                  name={[name, "question"]}
                   label="Subquestion"
                   rules={[{ required: true, message: "Missing Subquestion" }]}
                   className="subquestion-item-name"

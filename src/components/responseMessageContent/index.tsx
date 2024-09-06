@@ -25,7 +25,7 @@ const ResponseMessageContent: React.FC<ResponseMessageContentProps> = ({
         {response.title}
       </Title>
       <div className="response-content">
-        {/* {Object.entries(response.sections).map(
+        {Object.entries(response.sections).map(
           ([sectionTitle, sectionContent], index) => (
             <div key={index} className="response-section">
               <Title level={5} className="response-section-title">
@@ -38,9 +38,9 @@ const ResponseMessageContent: React.FC<ResponseMessageContentProps> = ({
               ))}
             </div>
           )
-        )} */}
+        )}
         {/* {JSON.parse(m)} */}
-        {`${m}`}
+        {/* {`${m}`} */}
       </div>
     </div>
   );

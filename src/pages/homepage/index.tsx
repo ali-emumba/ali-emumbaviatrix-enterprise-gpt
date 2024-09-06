@@ -14,7 +14,9 @@ const Homepage: React.FC = () => {
     <div className="homepage">
       <div className="leftside">
         <h1>Aviatrix Enterprise GPT</h1>
-        <GptQueryForm2 loading={loading} onSetLoading={onSetLoading} />
+        <div className="form-overflow">
+          <GptQueryForm2 loading={loading} onSetLoading={onSetLoading} />
+        </div>
       </div>
       <div className="rightside">
         <ResponseContainer loading={loading} />
