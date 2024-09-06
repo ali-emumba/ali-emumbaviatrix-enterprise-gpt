@@ -39,7 +39,12 @@ const EmailTags: React.FC<EmailTagsProps> = ({ formatted_emails }) => {
     <>
       <div className="email-tags">
         {formatted_emails.map((email, index) => (
-          <Popover content={content} trigger="hover" key={index}>
+          <Popover
+            content={content}
+            trigger="hover"
+            key={index}
+            placement="topRight"
+          >
             <Tag className="email-tag" onClick={() => openModal(email)}>
               <div className="tag-content">
                 <div className="tag-subject">

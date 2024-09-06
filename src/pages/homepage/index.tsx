@@ -5,6 +5,11 @@ import ResponseContainer from "../../components/responseContainer";
 
 const Homepage: React.FC = () => {
   const [loading, setLoading] = useState(false);
+  const [response, setResponse] = useState<any | null>(null);
+
+  const onSetResponse = (value: any) => {
+    setResponse(value);
+  };
 
   const onSetLoading = (value: boolean) => {
     setLoading(value);
@@ -15,11 +20,15 @@ const Homepage: React.FC = () => {
       <div className="leftside">
         <h1>Aviatrix Enterprise GPT</h1>
         <div className="form-overflow">
-          <GptQueryForm2 loading={loading} onSetLoading={onSetLoading} />
+          <GptQueryForm2
+            onSetResponse={onSetResponse}
+            loading={loading}
+            onSetLoading={onSetLoading}
+          />
         </div>
       </div>
       <div className="rightside">
-        <ResponseContainer loading={loading} />
+        <ResponseContainer response={response} loading={loading} />
       </div>
     </div>
   );

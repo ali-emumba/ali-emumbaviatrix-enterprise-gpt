@@ -1,9 +1,5 @@
 import axiosInstance from "./axiosInstance";
-import {
-  GenerateRequestBody,
-  GenerateResponse,
-  SubQuestion,
-} from "../types/apiTypes";
+import { GenerateResponse } from "../types/apiTypes";
 
 // export const generateResponse = async (
 //   query: string,

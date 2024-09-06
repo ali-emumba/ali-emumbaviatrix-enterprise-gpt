@@ -8,11 +8,13 @@ import { generateResponse } from "../../api/generate";
 interface GptQueryForm2Props {
   loading: boolean;
   onSetLoading: (value: boolean) => void;
+  onSetResponse: (value: any) => void;
 }
 
 const GptQueryForm2: React.FC<GptQueryForm2Props> = ({
   loading,
   onSetLoading,
+  onSetResponse,
 }) => {
   const [form] = Form.useForm();
   const [selectedSubQuestions, setSelectedSubQuestions] = useState<any[]>([]);
@@ -20,10 +22,15 @@ const GptQueryForm2: React.FC<GptQueryForm2Props> = ({
   const onFinish = async (values: any) => {
     console.log("Received values of form:", values);
     onSetLoading(true);
-    // setTimeout(() => {
-    //   onSetLoading(false);
-    // }, 3000);
-    const response = await generateResponse(values);
+    try {
+      const response = await generateResponse(values);
+      console.log(response);
+      onSetResponse(response);
+      onSetLoading(false);
+    } catch (error) {
+      onSetLoading(false);
+      console.error("Error generating response:", error);
+    }
   };
 
   const handleQuestionChange = (questionValue: string) => {
