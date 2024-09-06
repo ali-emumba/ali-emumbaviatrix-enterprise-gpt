@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 import ResponseMessageContent from "../responseMessageContent";
 import EmailTags from "../emailTags";
-// import EmailAttachments from "../emailAttachments";
+import EmailAttachments from "../emailAttachments";
 import { Spin } from "antd";
 
 // const response = {
@@ -109,9 +109,12 @@ const ResponseContainer: React.FC<ResponseContainerProps> = ({
             {/* <h3>Response</h3> */}
             <ResponseMessageContent response={response.response} />
             <h3>{`Context Emails (${response.formatted_emails.length})`}</h3>
-            <EmailTags formatted_emails={response.formatted_emails} />
+            <EmailTags
+              formatted_emails={response.formatted_emails}
+              attachments={response.s3_attachment_links}
+            />
             {/* <h3>Context Attachments</h3>
-      <EmailAttachments attachments={s3_attachment_links} /> */}
+            <EmailAttachments attachments={response.s3_attachment_links} /> */}
           </>
         )
       )}

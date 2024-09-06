@@ -18,7 +18,7 @@ const Homepage: React.FC = () => {
   return (
     <div className="homepage">
       <div className="leftside">
-        <h1>Aviatrix Enterprise GPT</h1>
+        <h1>Aviatrix Email Insights</h1>
         <div className="form-overflow">
           <GptQueryForm2
             onSetResponse={onSetResponse}

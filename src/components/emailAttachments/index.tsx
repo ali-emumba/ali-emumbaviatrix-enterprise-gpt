@@ -18,12 +18,12 @@ const EmailAttachments: React.FC<EmailAttachmentsProps> = ({ attachments }) => {
         <li key={index}>
           <LinkOutlined />
           <a
-            href={attachment.url}
+            href={attachment}
             target="_blank"
-            rel="noopener noreferrer"
+            // rel="noopener noreferrer"
             className="attachment-link"
           >
-            {attachment.title}
+            {attachment}
           </a>
         </li>
       ))}
