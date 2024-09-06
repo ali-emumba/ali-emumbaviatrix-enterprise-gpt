@@ -40,7 +40,7 @@ const ResponseMessageContent: React.FC<ResponseMessageContentProps> = ({
           )
         )} */}
         {/* {JSON.parse(m)} */}
-        {`${m}`}
+        {`${response}`}
       </div>
     </div>
   );

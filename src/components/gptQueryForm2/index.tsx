@@ -35,7 +35,7 @@ const GptQueryForm2: React.FC<GptQueryForm2Props> = ({
 
   const handleQuestionChange = (questionValue: string) => {
     // Find the selected question object
-    const selectedQuestion = QUESTIONS.find((q) => q.value === questionValue);
+    const selectedQuestion = QUESTIONS.find((q) => q.label === questionValue);
 
     // If the question has subquestions, set them in the Form List
     if (selectedQuestion?.subQuestions) {
@@ -72,7 +72,7 @@ const GptQueryForm2: React.FC<GptQueryForm2Props> = ({
           onChange={handleQuestionChange} // Handle question change
         >
           {QUESTIONS.map((q) => (
-            <Select.Option key={q.value} value={q.value}>
+            <Select.Option key={q.value} value={q.label}>
               {q.label}
             </Select.Option>
           ))}
