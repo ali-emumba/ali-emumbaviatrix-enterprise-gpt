@@ -12,7 +12,14 @@
   width: 60% !important;
 } */
 
-.gptQueryForm .form-list-wrapper {
+.gptQueryForm .form-list-container {
+  max-height: 40vh;
+  height: auto;
+  overflow-y: auto;
+  margin-bottom: 30px;
+}
+
+.gptQueryForm .form-item-wrapper {
   width: 100%;
   display: flex;
   gap: 6px;
