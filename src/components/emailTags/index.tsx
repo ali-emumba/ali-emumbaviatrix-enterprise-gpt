@@ -66,7 +66,7 @@ const EmailTags: React.FC<EmailTagsProps> = ({ formatted_emails }) => {
               <strong>From:</strong> {selectedEmail.From}
             </p>
             <p>
-              <strong>To:</strong> {selectedEmail.To}
+              <strong>To:</strong> {selectedEmail.To.map((to) => `${to} , `)}
             </p>
             <p>
               <strong>CC:</strong> {selectedEmail.CC}
