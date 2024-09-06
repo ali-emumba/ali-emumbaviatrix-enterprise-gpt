@@ -47,9 +47,9 @@ const EmailTags: React.FC<EmailTagsProps> = ({ formatted_emails }) => {
           >
             <Tag className="email-tag" onClick={() => openModal(email)}>
               <div className="tag-content">
-                <div className="tag-subject">
-                  <b>Subject: </b>
-                  {email.Subject}
+                <div className="tag-subject">{email.Subject}</div>
+                <div className="tag-date">
+                  {new Date(email["Received DateTime"]).toLocaleDateString()}
                 </div>
               </div>
             </Tag>
