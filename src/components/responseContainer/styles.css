@@ -1,0 +1,13 @@
+.response-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  /* background-color: rgb(127, 185, 235); */
+  color: rgb(65, 65, 65);
+}
+
+.response-container h3 {
+  margin-top: 8px;
+}

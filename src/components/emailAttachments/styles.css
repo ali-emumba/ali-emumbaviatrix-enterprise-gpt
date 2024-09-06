@@ -1,0 +1,20 @@
+.email-attachments {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+/* 
+.email-attachments li {
+  margin-bottom: 8px;
+} */
+
+.attachment-link {
+  font-size: 13px;
+  margin-left: 4px;
+  color: #0055b0;
+  text-decoration: none;
+}
+
+.attachment-link:hover {
+  text-decoration: underline;
+}

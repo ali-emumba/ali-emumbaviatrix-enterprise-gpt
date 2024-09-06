@@ -1,0 +1,31 @@
+.gptQueryForm {
+  max-width: 600px;
+  width: 100%;
+  margin-top: 2vw;
+}
+
+.gptQueryForm .cta {
+  width: 100%;
+}
+
+/* .ant-space-item {
+  width: 60% !important;
+} */
+
+.gptQueryForm .form-list-wrapper {
+  width: 100%;
+  display: flex;
+  gap: 6px;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.gptQueryForm .subquestion-item-name {
+  width: 100%;
+  max-width: 60%;
+}
+
+.gptQueryForm .subquestion-item-tags {
+  width: 100%;
+  max-width: 40%;
+}
