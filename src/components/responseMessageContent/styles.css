@@ -1,8 +1,9 @@
 .response-message-content {
   width: 100%;
-  height: 60vh;
+  max-height: 55vh;
+  height: fit-content;
   /* margin: 20px auto; */
-  padding: 15px 20px;
+  padding: 15px 40px;
   border-radius: 8px;
   background-color: white;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;

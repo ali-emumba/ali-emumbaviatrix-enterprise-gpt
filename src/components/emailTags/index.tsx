@@ -76,10 +76,10 @@ const EmailTags: React.FC<EmailTagsProps> = ({ formatted_emails }) => {
             </p>
             <p>
               <strong>Received DateTime:</strong>{" "}
-              {new Date(selectedEmail.ReceivedDateTime).toLocaleString()}
+              {new Date(selectedEmail["Received DateTime"]).toLocaleString()}
             </p>
             <hr />
-            <p>{selectedEmail.BodyText}</p>
+            <p>{selectedEmail["Body Text"]}</p>
           </div>
         )}
       </Modal>

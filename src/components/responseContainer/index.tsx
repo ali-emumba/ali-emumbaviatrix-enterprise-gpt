@@ -106,8 +106,9 @@ const ResponseContainer: React.FC<ResponseContainerProps> = ({
       ) : (
         response && (
           <>
+            {/* <h3>Response</h3> */}
             <ResponseMessageContent response={response.response} />
-            <h3>Context Emails</h3>
+            <h3>{`Context Emails (${response.formatted_emails.length})`}</h3>
             <EmailTags formatted_emails={response.formatted_emails} />
             {/* <h3>Context Attachments</h3>
       <EmailAttachments attachments={s3_attachment_links} /> */}
