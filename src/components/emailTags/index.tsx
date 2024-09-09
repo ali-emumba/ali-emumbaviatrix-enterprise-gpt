@@ -1,33 +1,24 @@
 import { Modal, Popover, Tag } from "antd";
 import React, { useState } from "react";
-import { LinkOutlined } from "@ant-design/icons";
+// import { LinkOutlined } from "@ant-design/icons";
 
 import "./styles.css";
-
-interface Email {
-  Subject: string;
-  From: string;
-  To: string;
-  CC: string;
-  BCC: string;
-  ReceivedDateTime: string;
-  BodyText: string;
-}
+import { FormattedEmail } from "../../types/apiTypes";
 
 interface EmailTagsProps {
-  formatted_emails: Email[];
+  formatted_emails: FormattedEmail[];
 }
 
 const EmailTags: React.FC<EmailTagsProps> = ({
   formatted_emails,
-  attachments,
+  // attachments,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedEmail, setSelectedEmail] = useState<Email | undefined>(
-    undefined
-  );
+  const [selectedEmail, setSelectedEmail] = useState<
+    FormattedEmail | undefined
+  >(undefined);
 
-  const openModal = (email: Email) => {
+  const openModal = (email: FormattedEmail) => {
     setSelectedEmail(email);
     setIsModalOpen(true);
   };
@@ -62,8 +53,7 @@ const EmailTags: React.FC<EmailTagsProps> = ({
             </Popover>
           ))}
         </div>
-        {/* <br /> */}
-        <ul className="email-attachments">
+        {/* <ul className="email-attachments">
           {attachments.map((attachment, index) => (
             <li key={index}>
               <LinkOutlined />
@@ -77,7 +67,7 @@ const EmailTags: React.FC<EmailTagsProps> = ({
               </a>
             </li>
           ))}
-        </ul>
+        </ul> */}
       </div>
       <Modal open={isModalOpen} onCancel={closeModal} footer={null}>
         {selectedEmail && (

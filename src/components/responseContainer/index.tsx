@@ -2,8 +2,9 @@ import React from "react";
 import "./styles.css";
 import ResponseMessageContent from "../responseMessageContent";
 import EmailTags from "../emailTags";
-import EmailAttachments from "../emailAttachments";
+// import EmailAttachments from "../emailAttachments";
 import { Spin } from "antd";
+import { GptResponse } from "../../types/apiTypes";
 
 // const response = {
 //   title: "Initial Pain Points, Challenges, and Key Business Initiatives",
@@ -92,7 +93,7 @@ import { Spin } from "antd";
 
 interface ResponseContainerProps {
   loading: boolean;
-  response?: any;
+  response?: GptResponse;
 }
 
 const ResponseContainer: React.FC<ResponseContainerProps> = ({
@@ -111,7 +112,7 @@ const ResponseContainer: React.FC<ResponseContainerProps> = ({
             <h3>{`Context Emails (${response.formatted_emails.length})`}</h3>
             <EmailTags
               formatted_emails={response.formatted_emails}
-              attachments={response.s3_attachment_links}
+              // attachments={response.s3_attachment_links}
             />
             {/* <h3>Context Attachments</h3>
             <EmailAttachments attachments={response.s3_attachment_links} /> */}
