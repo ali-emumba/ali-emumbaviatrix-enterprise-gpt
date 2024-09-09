@@ -219,6 +219,7 @@ export const SUBQUESTION_TAGS = [
   { value: "metrics", label: "Metrics" },
   { value: "economic-buyer", label: "Economic Buyer" },
   { value: "decision-criteria", label: "Decision Criteria" },
+  { value: "decision-process", label: "Decision Process" },
   { value: "paper-process", label: "Paper Process" },
   { value: "identified-pain", label: "Identified Pain" },
   { value: "champion", label: "Champion" },
