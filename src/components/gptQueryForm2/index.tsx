@@ -60,6 +60,21 @@ const GptQueryForm2: React.FC<GptQueryForm2Props> = ({
       layout="vertical"
       className="gptQueryForm"
     >
+      {/* Select Option */}
+      <Form.Item
+        name="company"
+        label="Choose an option"
+        rules={[{ required: true, message: "Please select an option!" }]}
+      >
+        <Select placeholder="Select an option" className="gptQueryFormSelect">
+          {OPTIONS.map((opt) => (
+            <Select.Option key={opt.value} value={opt.value}>
+              {opt.label}
+            </Select.Option>
+          ))}
+        </Select>
+      </Form.Item>
+
       {/* Select Question */}
       <Form.Item
         name="query"
@@ -74,21 +89,6 @@ const GptQueryForm2: React.FC<GptQueryForm2Props> = ({
           {QUESTIONS.map((q) => (
             <Select.Option key={q.value} value={q.label}>
               {q.label}
-            </Select.Option>
-          ))}
-        </Select>
-      </Form.Item>
-
-      {/* Select Option */}
-      <Form.Item
-        name="company"
-        label="Choose an option"
-        rules={[{ required: true, message: "Please select an option!" }]}
-      >
-        <Select placeholder="Select an option" className="gptQueryFormSelect">
-          {OPTIONS.map((opt) => (
-            <Select.Option key={opt.value} value={opt.value}>
-              {opt.label}
             </Select.Option>
           ))}
         </Select>

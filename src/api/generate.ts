@@ -28,10 +28,13 @@ import { GenerateResponse } from "../types/apiTypes";
 export const generateResponse = async (
   query: any
 ): Promise<GenerateResponse> => {
-  const q = JSON.stringify(query);
-  console.log("q", q);
+  const requestBody = JSON.stringify(query);
+  // console.log("requestBody", requestBody);
   try {
-    const response = await axiosInstance.post<GenerateResponse>("/generate", q);
+    const response = await axiosInstance.post<GenerateResponse>(
+      "/generate",
+      requestBody
+    );
     return response.data;
   } catch (error) {
     console.error("Error making request:", error);
